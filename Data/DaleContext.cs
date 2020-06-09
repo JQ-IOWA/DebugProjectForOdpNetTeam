@@ -44,6 +44,9 @@ namespace Data
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+      //per Alex, adding this allows the query to execute. Issue #71 ODPNET
+      modelBuilder.HasAnnotation("Relational:MaxIdentifierLength", 30);
+
       modelBuilder.Entity<BookingBlock>().ToTable("PDF_BOOKING_BLOCK");
       modelBuilder.Entity<CustomerGroup>().ToTable("PDF_CUST_GROUP");
 
